@@ -2,7 +2,7 @@ package com.example.sampleconstraintlayoutevenbutton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -48,6 +48,24 @@ public class MainActivity extends AppCompatActivity {
                 //membuat variabel toast dan membuat toast dengan menambahkan variabel nama dan password
                 if (nama.equals("admin@mail.com") && password.equals("123")){
                     Toast.makeText(MainActivity.this, "Login Sukses",Toast.LENGTH_LONG).show();
+
+                   //Membuat objek bundle
+                   Bundle b = new Bundle();
+
+                   //memasukan value dari variabel nama dengan kunci "a"
+                    b.putString("a", nama.trim());
+
+                    //memasukan value dari variabel password dengan kunci "b" dan dimasukan kedalam bundle
+                    b.putString("b",password.trim());
+
+                    //membuat objek untent berpindah activity dari mainactivity ke activity hasil
+                    Intent i = new Intent(getApplicationContext(), ActivityKedua.class);
+
+                    //memasukan bundle kedalam inten untuk dikirimkan ke activityKedua
+                    i.putExtras (b);
+
+                    //berpindah ke ActivityKedua
+                    startActivity(i);
                 }
                 else if (nama.equals("admin1@mail.com") && password.equals(password)){
                     Toast.makeText(MainActivity.this, "Password Salah", Toast.LENGTH_LONG).show();
@@ -56,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Email Salah",Toast.LENGTH_LONG).show();
                 }
                 else {
-                    Toast.makeText(MainActivity.this,"Email dan paswword Salah",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this,"Email dan password Salah",Toast.LENGTH_LONG).show();
                 }
             }
         });
