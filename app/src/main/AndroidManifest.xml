@@ -12,6 +12,8 @@
         <activity android:name=".ActivityKedua"
             android:parentActivityName=".MainActivity"
             android:label="@string/label2"></activity>
+        <activity android:name=".DaftarActifity"
+            android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
